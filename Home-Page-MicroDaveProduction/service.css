@@ -1,0 +1,277 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1e1e1e;
+  color: #fff;
+  line-height: 1.5;
+  scrollbar-width: none; /* Updated: hides scrollbar on modern browsers */
+}
+
+/* Services Section */
+.services {
+  text-align: center;
+  padding: 2rem 3rem;
+  margin: 1rem;
+  overflow: hidden;
+}
+
+.services h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.services p {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  color: #dad6d6;
+}
+
+/* Scrollable Container for Cards */
+.service-cards {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1.5rem; /* Added padding for cleaner layout */
+  background-position: center;
+  max-width: 100%;
+  background-image: url('img/bak.jpg');
+  background-size: cover; /* Ensure the background image scales properly */
+  border-radius: 2rem;
+  scrollbar-width: none; /* Hide scrollbar */
+}
+
+.service-cards::-webkit-scrollbar {
+  display: none; /* Hide scrollbar on WebKit browsers */
+}
+
+/* Cards Styling */
+.card {
+  position: relative;
+  flex: 0 0 auto; /* Prevent cards from stretching */
+  width: 17rem;
+  height: 22rem;
+  border: 2px solid #ff9900;
+  border-radius: 1.5rem; /* Reduced radius for a cleaner look */
+  padding: 1.5rem;
+  margin: 1rem 0; /* Updated margin for consistent spacing */
+  background-color: rgba(41, 41, 41, 0.9);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 8px 16px rgba(255, 153, 0, 0.5);
+  border-color: #ffaa33;
+}
+
+.card img {
+  max-width: 40%; /* Increased size for better visual balance */
+  margin: 1rem 0;
+}
+
+.card h2 {
+  font-size: 1.3rem; /* Increased font size for better readability */
+  color: #ff9900;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #ebe5e5;
+  line-height: 1rem;
+  margin: 0.5rem 0;
+  flex-grow: 50%; /* Ensures the description fills available space */
+}
+
+/* "SEE MORE" Button */
+.see-more {
+  margin-top: auto; /* Ensures the button stays at the bottom */
+  padding: 0.8rem 1.5rem; /* Improved padding for a cleaner look */
+  background-color: #ff9900f3;
+  background-blend-mode:soft-light;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.see-more:hover {
+  background-color: #ffaa3385;
+}
+
+.see-more-modal{
+  margin-top: 15%;
+  margin-left:-80%; /* Ensures the button stays at the bottom */
+  padding: 0.8rem 1.5rem; /* Improved padding for a cleaner look */
+  background-color: #ff9900f3;
+  background-blend-mode:soft-light;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  
+}
+.see-more-modal:hover {
+  background-color: #ffaa3385;
+}
+
+
+
+/* Modals Styling */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.modal-content {
+  position: relative;
+  margin: 5% auto;
+  width: 90%;
+  max-width: 700px; /* Reduced max-width for better responsiveness */
+  background-color: #3d3c3c;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  color: #fff;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+}
+.modal-p{
+  text-align: justify;
+}
+
+.modal-img {
+  max-width: 100%; /* Increased size for better visibility */
+  margin: 1rem 0;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+  color: #ffaa33;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Media Query for Mobile Devices (up to 6-inch screens) */
+@media (max-width: 600px) {
+  /* Adjust Body Styling */
+  body {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  /* Services Section */
+  .services {
+    padding: 0.1rem;
+  }
+
+  .services h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .services p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Cards Styling */
+  .service-cards {
+    flex-direction: row; /* Ensure cards are in a row */
+    gap: 1rem;
+    padding: 1rem;
+    background-size: contain; /* Adjust background size for smaller screens */
+    overflow-x: auto; /* Enable horizontal scroll on mobile */
+  }
+
+  .card {
+    width: 15rem; /* Smaller width for mobile */
+    height: 20rem; /* Adjust height for better layout */
+    border-radius: 1rem; /* Reduced radius for mobile */
+    padding: 1rem;
+    background-color: rgba(61, 60, 60, 0.8);
+  }
+
+  .card img {
+    max-width: 40%; /* Adjust image size for mobile */
+    margin: 1rem 0;
+  }
+
+  .card h2 {
+    font-size: 1rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+
+  .see-more {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem; /* Smaller padding for mobile */
+  }
+
+  /* Modals */
+  .modal-content {
+    width: 90%;
+    max-width: 500px; /* Reduced max width for mobile */
+    padding: 1.5rem;
+  }
+
+  .modal-img {
+    max-width: 80%; /* Adjust modal image size for mobile */
+  }
+
+}
+/* Responsiveness for the modal button */
+@media (max-width: 600px) {
+  .see-more-modal {
+    width: 8rem; /* Ensure it adapts to the modal width */
+    font-size: 0.9rem; /* Reduce font size for smaller screens */
+    padding: 0.6rem 1rem; /* Adjust padding for mobile */
+    margin-top: 1rem; /* Ensure proper spacing */
+    margin-left: -50%;
+  }
+}

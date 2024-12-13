@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD Studio Services</title>
+    <link rel="stylesheet" href="service.css">
+</head>
+<body>
+    <!-- Services Section -->
+    <section class="services">
+        <h1>WHAT WE OFFER</h1>
+        <p>
+            From studio and instrument rentals to professional recording, live sessions, premium sound systems, and photography services,
+            <br>-we provide everything you need to create and capture unforgettable moments.
+        </p>
+        <div class="scroll-buttons">
+            <button class="scroll-left" style="display: none;">&lt;</button>
+            <button class="scroll-right" style="display: none;">&gt;</button>
+        </div>
+        <div class="service-cards">
+            <!-- Studio Rental Card -->
+            <div class="card">
+                <img src="img/rent.png" alt="Studio Rental">
+                <h2>STUDIO RENTAL</h2>
+                <p>Fully-equipped, soundproof studios available for music production.</p>
+                <button class="see-more" onclick="openModal('studio-modal')">See More</button>
+            </div>
+
+            <!-- Instrument Rental Card -->
+            <div class="card">
+                <img src="img/live-music.png" alt="Instrument Rental">
+                <h2>INSTRUMENT RENTAL</h2>
+                <p>Rent high-quality instruments for your music sessions.</p>
+                <button class="see-more" onclick="openModal('instrument-modal')">See More</button>
+            </div>
+
+            <!-- Sound System Rental Card -->
+            <div class="card">
+                <img src="img/vinyl.png" alt="Sound System Rental">
+                <h2>SOUND SYSTEM RENTAL</h2>
+                <p>Premium sound systems for events and performances.</p>
+                <button class="see-more" onclick="openModal('sound-system-modal')">See More</button>
+            </div>
+
+            <!-- Photography Rental Card -->
+            <div class="card">
+                <img src="img/tripod.png" alt="Photography Rental">
+                <h2>PHOTOGRAPHY RENTAL</h2>
+                <p class="p2">Professional-grade photography and for stunning visuals.</p>
+                <button class="see-more" onclick="openModal('photography-modal')">See More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Container -->
+    <div id="modal-container"></div>
+
+    <!-- Scripts -->
+    <script>
+        // Fetch modal content dynamically
+        fetch('modals.html') // Adjust path if needed
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Failed to load modals: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(html => {
+                document.getElementById('modal-container').innerHTML = html;
+            })
+            .catch(err => console.error('Error loading modals:', err));
+
+        // Open modal function
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'flex';
+            }
+        }
+
+        // Close modal function
+        function closeModal(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        function closeModalById(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
